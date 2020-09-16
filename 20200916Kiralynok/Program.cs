@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace _20200916Kiralynok
 {
@@ -23,7 +19,14 @@ namespace _20200916Kiralynok
             }
             public void Megjelenit()
             {
-
+                for (int i = 0; i < T.GetLength(0); i++)
+                {
+                    for (int y = 0; y < T.GetLength(1); y++)
+                    {
+                        Console.Write(T[i, y] + " ");
+                    }
+                    Console.WriteLine();
+                }
             }
             public Tabla(char ch)
             {
@@ -48,7 +51,11 @@ namespace _20200916Kiralynok
         }
         static void Main(string[] args)
         {
-
+            Console.WriteLine("Királynők feladat");
+            Tabla t = new Tabla('#');
+            Console.WriteLine("Üres tábla:");
+            t.Megjelenit();
+            Console.ReadKey();
         }
     }
 }
