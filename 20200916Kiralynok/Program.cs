@@ -16,10 +16,12 @@ namespace _20200916Kiralynok
                 {
                     int sor = rnd.Next(0, 8);
                     int oszlop = rnd.Next(0, 8);
-                    if (T[sor, oszlop] == '#')
+                    while (T[sor, oszlop] == 'K')
                     {
-                        T[sor, oszlop] = 'K';
+                        sor = rnd.Next(0, 8);
+                        oszlop = rnd.Next(0, 8);
                     }
+                    T[sor, oszlop] = 'K';   
                 } 
             }
             public void FajlbaIr()
@@ -63,7 +65,9 @@ namespace _20200916Kiralynok
             Console.WriteLine("Királynők feladat");
             Tabla t = new Tabla('#');
             Console.WriteLine("Üres tábla:");
-            t.Elhelyez(8);
+            t.Megjelenit();
+            t.Elhelyez(64);
+            Console.WriteLine();
             t.Megjelenit();
             Console.ReadKey();
         }
