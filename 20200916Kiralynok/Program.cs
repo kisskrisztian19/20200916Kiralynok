@@ -11,14 +11,16 @@ namespace _20200916Kiralynok
             int UresoszlopokSzama, UressorokSzama;
             public void Elhelyez(int N)
             {
-                Random rnd = new Random(); 
-                int sor = rnd.Next(0, 8);
-                int oszlop = rnd.Next(0, 8);
-                if (T[sor,oszlop] == '#')
+                Random rnd = new Random();
+                for (int i = 0; i < N; i++)
                 {
-                    T[sor, oszlop] = 'K';
-                }
-                
+                    int sor = rnd.Next(0, 8);
+                    int oszlop = rnd.Next(0, 8);
+                    if (T[sor, oszlop] == '#')
+                    {
+                        T[sor, oszlop] = 'K';
+                    }
+                } 
             }
             public void FajlbaIr()
             {
@@ -61,7 +63,7 @@ namespace _20200916Kiralynok
             Console.WriteLine("Királynők feladat");
             Tabla t = new Tabla('#');
             Console.WriteLine("Üres tábla:");
-            t.Elhelyez(3);
+            t.Elhelyez(8);
             t.Megjelenit();
             Console.ReadKey();
         }
