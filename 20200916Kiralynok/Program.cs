@@ -51,13 +51,37 @@ namespace _20200916Kiralynok
                     }
                 }
             }
-            public int UresOszlop()
+            public bool UresOszlop(int oszlop)
             {
-                return 0;
+                int i = 0;
+                while (i< T.GetLength(1) && T[i, oszlop] == '#')
+                {
+                    i += 1;
+                }
+                if (i < T.GetLength(1))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
-            public int UresSor()
+            public bool UresSor(int sor)
             {
-                return 0;
+                int i = 0;
+                while (i < T.GetLength(0) && T[sor, i] == '#')
+                {
+                    i += 1;
+                }
+                if (i < T.GetLength(0))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
         }
         static void Main(string[] args)
@@ -66,9 +90,19 @@ namespace _20200916Kiralynok
             Tabla t = new Tabla('#');
             Console.WriteLine("Üres tábla:");
             t.Megjelenit();
-            t.Elhelyez(64);
+            t.Elhelyez(8);
             Console.WriteLine();
             t.Megjelenit();
+            Console.WriteLine("Melyik sor: "); int szam = int.Parse(Console.ReadLine())-1;
+            t.UresSor(szam);
+            if (t.UresSor(szam) == true)
+            {
+                Console.WriteLine($"A(z) {szam}. sor üres.");
+            }
+            else
+            {
+                Console.WriteLine($"A(z) {szam}. sor nem üres.");
+            }
             Console.ReadKey();
         }
     }
