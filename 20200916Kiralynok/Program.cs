@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace _20200916Kiralynok
 {
@@ -54,11 +56,11 @@ namespace _20200916Kiralynok
             public bool UresOszlop(int oszlop)
             {
                 int i = 0;
-                while (i< T.GetLength(1) && T[i, oszlop] == '#')
+                while (i<= T.GetLength(1) && T[i, oszlop] == '#')
                 {
-                    i += 1;
+                    i = i + 1;
                 }
-                if (i < T.GetLength(1))
+                if (i <= T.GetLength(1))
                 {
                     return true;
                 }
@@ -70,11 +72,11 @@ namespace _20200916Kiralynok
             public bool UresSor(int sor)
             {
                 int i = 0;
-                while (i < T.GetLength(0) && T[sor, i] == '#')
+                while (i <= T.GetLength(0) && T[sor, i] == '#')
                 {
-                    i += 1;
+                    i = i + 1;
                 }
-                if (i < T.GetLength(0))
+                if (i <= T.GetLength(0))
                 {
                     return true;
                 }
@@ -93,17 +95,28 @@ namespace _20200916Kiralynok
             t.Elhelyez(8);
             Console.WriteLine();
             t.Megjelenit();
-            Console.WriteLine("Melyik sor: "); int szam = int.Parse(Console.ReadLine())-1;
+            Console.WriteLine("Melyik sor: "); int szam = (int.Parse(Console.ReadLine()))-1;
             t.UresSor(szam);
             if (t.UresSor(szam) == true)
             {
-                Console.WriteLine($"A(z) {szam}. sor üres.");
+                Console.WriteLine($"A(z) {szam}. sor nem üres.");
             }
             else
             {
-                Console.WriteLine($"A(z) {szam}. sor nem üres.");
+                Console.WriteLine($"A(z) {szam}. sor üres.");
             }
+         
+            /*t.UresOszlop(szam);
+            if (t.UresOszlop(szam) == true)
+            {
+                Console.WriteLine($"A(z) {szam+1}. oszlop üres.");
+            }
+            else
+            {
+                Console.WriteLine($"A(z) {szam+1}. oszlop nem üres.");
+            }*/
             Console.ReadKey();
         }
+        
     }
 }
